@@ -8,6 +8,8 @@ abstract class BasePageView<B extends BaseBloc> extends ComponentView <B>{
 
   List<Widget> appBarActions(BuildContext context) => [];
 
+  FloatingActionButton get floatingAction => null;
+
   String get title;
 
   @override
@@ -17,6 +19,7 @@ abstract class BasePageView<B extends BaseBloc> extends ComponentView <B>{
         actions: appBarActions(context),
         title: Text(title),
       ),
+      floatingActionButton: floatingAction,
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: buildContent(context),
