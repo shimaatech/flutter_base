@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_base/src/mixins/disposable.dart';
 
-abstract class Initializable {
+abstract class Initializable with Disposable {
 
   Future<void> _initialized;
   Future<void> get initialized => _initialized;
@@ -9,7 +10,7 @@ abstract class Initializable {
   bool get isInitialized => _isInitialized;
 
   @protected
-  Future<void> initialize();
+  Future<void> initialize() async {}
 
   Future<void> _initialize() async {
     _initialized = initialize();
