@@ -3,19 +3,29 @@ import 'package:intl/intl.dart';
 class TimeUtils {
   const TimeUtils._();
 
-  static final DateFormat timeFormatter = DateFormat('dd/MM HH:mm');
-  static final DateFormat todayTimeFormatter = DateFormat('HH:mm');
+  static const String _defaultTimeFormat = 'HH:mm';
+  static const String _defaultDateFormat = 'dd/MM';
+  static const String _defaultSeparator = ' ';
 
-  static String formatTime(DateTime time) {
-    if (time == null) {
-      throw ArgumentError.notNull('time');
-    }
+  static String formatTime(
+    DateTime time, {
+    String timeFormat = _defaultTimeFormat,
+    String dateFormat = _defaultDateFormat,
+    String separator = _defaultSeparator,
+    bool forceShowDate = false,
+    String locale,
+  }) {
+    assert(time != null);
 
-    if (time.day == DateTime.now().day) {
-      return todayTimeFormatter.format(time);
+    DateFormat formatter;
+
+    if (time.day == DateTime.now().day && !forceShowDate) {
+      formatter = DateFormat('$dateFormat$separator$timeFormat');
     } else {
-      return timeFormatter.format(time);
+      formatter = DateFormat(timeFormat);
     }
+
+    return formatter.format(time);
   }
 
   static DateTime fromUtc(DateTime time) {
