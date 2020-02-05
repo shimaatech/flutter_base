@@ -20,9 +20,9 @@ class TimeUtils {
     DateFormat formatter;
 
     if (time.day == DateTime.now().day && !forceShowDate) {
-      formatter = DateFormat('$dateFormat$separator$timeFormat');
-    } else {
       formatter = DateFormat(timeFormat);
+    } else {
+      formatter = DateFormat('$dateFormat$separator$timeFormat');
     }
 
     return formatter.format(time);
