@@ -25,6 +25,10 @@ abstract class Initializable with Disposable {
   /// multiple times
   Future<void> initialize() => _initFuture;
 
+  void assertInitialized() {
+    assert(_initialized);
+  }
+
 
   Initializable() {
     // initialize directly when constructing the service
