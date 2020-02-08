@@ -36,5 +36,6 @@ abstract class Initializable with Disposable {
   }
 
   @mustCallSuper
-  void dispose() {}
+  Future<void> dispose() async {
+  }
 }

@@ -1,12 +1,12 @@
 import 'package:flutter_base/src/abstract/abstract.dart';
 
-abstract class BaseService extends Initializable {
+abstract class InitializableService extends Initializable {
 
 }
 
 
 /// A simple service that doesn't need initialization
-abstract class SimpleService extends BaseService {
+abstract class BaseService extends InitializableService {
 
   /// [SimpleService] should be initialized in the constructor.
   @override
