@@ -2,14 +2,29 @@ import 'package:flutter/cupertino.dart';
 
 import '../../flutter_base.dart';
 
-abstract class BaseAppContext {
+abstract class AppContext {
+
+  Locator _locator;
+
+  AppContext() {
+    _locator = setupLocator();
+  }
 
   @protected
-  final Locator locator = KiwiLocator();
+  Locator setupLocator() {
+    return KiwiLocator();
+  }
+
+  @protected
+  Locator get locator => _locator;
 
   T locate<T>([String name]) => locator.locate<T>(name);
 
-  Future<void> setup();
+  Future<void> configure();
 
+}
+
+abstract class ContextConfiguration {
+  Future<void> configure(Locator locator);
 }
 

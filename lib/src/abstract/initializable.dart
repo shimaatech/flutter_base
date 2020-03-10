@@ -12,23 +12,14 @@ abstract class Initializable with Disposable {
 
 
   @protected
-  Future<void> doInitialize();
+  Future<void> initialize();
 
   Future<void> _initialize() async {
-    await doInitialize();
+    await initialize();
     _initialized = true;
   }
 
-
-  /// Does some async initializations.
-  /// The object will be initialized once even if this method was called
-  /// multiple times
-  Future<void> initialize() => _initFuture;
-
-  void assertInitialized() {
-    assert(_initialized);
-  }
-
+  Future<void> ensureInitialized() => _initFuture;
 
   Initializable() {
     // initialize directly when constructing the service

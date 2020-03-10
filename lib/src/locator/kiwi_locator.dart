@@ -2,6 +2,16 @@ import 'package:kiwi/kiwi.dart' as kiwi;
 import 'locator.dart';
 
 class KiwiLocator implements Locator {
+
+  static KiwiLocator _instance = KiwiLocator._internal();
+
+  KiwiLocator._internal();
+
+  factory KiwiLocator() {
+    return _instance;
+  }
+
+
   final kiwi.Container kiwiLocator = kiwi.Container();
 
   @override
