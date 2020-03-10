@@ -22,6 +22,11 @@ abstract class AppContext {
 
   Future<void> configure();
 
+  @mustCallSuper
+  Future<void> clear() async {
+    locator.clear();
+  }
+
 }
 
 abstract class ContextConfiguration {
