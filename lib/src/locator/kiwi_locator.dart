@@ -33,18 +33,18 @@ class KiwiLocator implements Locator {
 
   @override
   void registerInstance<S, T extends S>(S instance, {String name}) {
-    return kiwiLocator.registerInstance(instance, name: name);
+    return kiwiLocator.registerInstance<S, T>(instance, name: name);
   }
 
   @override
   void registerSingleton<S, T extends S>(Factory<S> factory, {String name}) {
-    return kiwiLocator.registerSingleton(locatorFactoryToKiwiFactory(factory),
+    return kiwiLocator.registerSingleton<S, T>(locatorFactoryToKiwiFactory(factory),
         name: name);
   }
 
   @override
   void unregister<T>([String name]) {
-    return kiwiLocator.unregister(name);
+    return kiwiLocator.unregister<T>(name);
   }
 
   kiwi.Factory<S> locatorFactoryToKiwiFactory<S>(Factory<S> factory) {
