@@ -3,6 +3,7 @@ import 'package:flutter_base/src/mixins/disposable.dart';
 
 /// Initialized directly when constructed
 abstract class Initializable with Disposable {
+
   Future<void> _initFuture;
 
   bool _initialized = false;
@@ -10,22 +11,16 @@ abstract class Initializable with Disposable {
   bool get initialized => _initialized;
 
   @protected
-  Future<void> doInitialize();
+  Future<void> initialize();
 
-  Future<void> initialize() async {
+  Future<void> ensureInitialized() async {
     await _initFuture;
     _initialized = true;
   }
 
-  void ensureInitialized() {
-    if (!initialized) {
-      throw NotInitializedException();
-    }
-  }
-
   Initializable() {
     // initialize directly when constructing the service
-    _initFuture = doInitialize();
+    _initFuture = initialize();
   }
 
   @mustCallSuper
@@ -33,10 +28,3 @@ abstract class Initializable with Disposable {
 
 }
 
-
-class NotInitializedException implements Exception {
-
-  final String message;
-  NotInitializedException([this.message]);
-
-}
