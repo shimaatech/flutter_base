@@ -8,6 +8,7 @@ abstract class Initializable with Disposable {
 
   bool _initialized = false;
 
+  @protected
   bool get initialized => _initialized;
 
   @protected
