@@ -26,7 +26,7 @@ abstract class AppContext {
   Future<void> configure() async {
     await configureInstances();
     for (BeanConfig config in configs) {
-      config.configure(locator);
+      config.configure(locator, overrideOnConflict);
     }
   }
 
@@ -37,12 +37,26 @@ abstract class AppContext {
     locator.clear();
   }
 
+  bool get overrideOnConflict => false;
+
 }
 
 
 abstract class BeanConfig<S, T extends S> {
   @protected
-  configure(Locator locator);
+  void configure(Locator locator, [bool override=false]) {
+    if (override) {
+      try {
+        locator.unregister<S>();
+      } catch (e) {
+        // ignore...
+      }
+    }
+    register(locator);
+  }
+
+  @protected
+  void register(Locator locator);
 
   S create(Locator locator);
 }
@@ -51,7 +65,7 @@ abstract class BeanConfig<S, T extends S> {
 abstract class SingletonBeanConfig<S, T extends S> extends BeanConfig<S, T> {
   @override
   @protected
-  void configure(Locator locator) {
+  void register(Locator locator) {
     locator.registerSingleton<S,T>((locator) => create(locator));
   }
 }
@@ -61,7 +75,7 @@ abstract class FactoryBeanConfig<S, T extends S> extends BeanConfig<S, T> {
 
   @override
   @protected
-  configure(Locator locator) {
+  void register(Locator locator) {
     locator.registerFactory<S,T>((locator) => create(locator));
   }
 
