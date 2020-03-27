@@ -40,15 +40,15 @@ abstract class AppContext {
 }
 
 
-abstract class BeanConfig<T> {
+abstract class BeanConfig<S, T extends S> {
   @protected
   configure(Locator locator);
 
-  T create(Locator locator);
+  S create(Locator locator);
 }
 
 
-abstract class SingletonBeanConfig<T> extends BeanConfig<T> {
+abstract class SingletonBeanConfig<S, T extends S> extends BeanConfig<S, T> {
   @override
   @protected
   void configure(Locator locator) {
@@ -57,7 +57,7 @@ abstract class SingletonBeanConfig<T> extends BeanConfig<T> {
 }
 
 
-abstract class FactoryBeanConfig<T> extends BeanConfig<T> {
+abstract class FactoryBeanConfig<S, T extends S> extends BeanConfig<S, T> {
 
   @override
   @protected
