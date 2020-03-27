@@ -52,7 +52,7 @@ abstract class SingletonBeanConfig<S, T extends S> extends BeanConfig<S, T> {
   @override
   @protected
   void configure(Locator locator) {
-    locator.registerSingleton((locator) => create(locator));
+    locator.registerSingleton<S,T>((locator) => create(locator));
   }
 }
 
@@ -62,7 +62,7 @@ abstract class FactoryBeanConfig<S, T extends S> extends BeanConfig<S, T> {
   @override
   @protected
   configure(Locator locator) {
-    locator.registerFactory((locator) => create(locator));
+    locator.registerFactory<S,T>((locator) => create(locator));
   }
 
 }
