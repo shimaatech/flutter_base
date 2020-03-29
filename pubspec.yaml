@@ -14,7 +14,7 @@ dependencies:
   kiwi: ^0.2.0
   bloc: ^3.0.0
   bloc_component: ^0.1.2
-  intl: ^0.16.1
+  intl: ^0.16.0
   logger: ^0.8.3
   flutter_inappbrowser: ^1.2.1
 
