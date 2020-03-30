@@ -10,14 +10,14 @@ abstract class BasePageView<B extends BaseBloc> extends ComponentView <B>{
 
   FloatingActionButton get floatingAction => null;
 
-  String get title;
+  String title(BuildContext context);
 
   @override
   Widget buildView(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: appBarActions(context),
-        title: Text(title),
+        title: Text(title(context)),
       ),
       floatingActionButton: floatingAction,
       body: Padding(
@@ -31,7 +31,7 @@ abstract class BasePageView<B extends BaseBloc> extends ComponentView <B>{
   Widget onInitializing(BuildContext context, StateLoading loadingData) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title(context)),
       ),
       body: onPageInitializing(context, loadingData),
     );
