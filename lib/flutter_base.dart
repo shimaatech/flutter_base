@@ -10,3 +10,4 @@ export 'src/bloc/bloc.dart';
 export 'src/widgets/widgets.dart';
 export 'src/abstract/abstract.dart';
 export 'src/app/app.dart';
+export 'src/serializers/serializers.dart';

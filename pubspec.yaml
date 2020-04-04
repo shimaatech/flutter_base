@@ -17,6 +17,8 @@ dependencies:
   intl: ^0.16.0
   logger: ^0.8.3
   flutter_inappbrowser: ^1.2.1
+  built_value: ^7.0.9
+
 
 
 dev_dependencies:
