@@ -18,6 +18,7 @@ dependencies:
   logger: ^0.8.3
   flutter_inappbrowser: ^1.2.1
   built_value: ^7.0.9
+  device_id: ^0.2.0
 
 
 
