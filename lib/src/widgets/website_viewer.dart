@@ -23,6 +23,9 @@ class _WebsiteViewerState extends State<WebsiteViewer> {
         Expanded(
           child: InAppWebView(
             initialUrl: widget.url,
+            initialOptions: InAppWebViewWidgetOptions(
+              inAppWebViewOptions: InAppWebViewOptions(debuggingEnabled: false),
+            ),
             onProgressChanged: (controller, progress) => _setProgress(progress),
           ),
         ),
@@ -33,7 +36,6 @@ class _WebsiteViewerState extends State<WebsiteViewer> {
   void _setProgress(int progress) {
     setState(() {
       _progress = progress / 100;
-      print('Progress: $_progress');
     });
   }
 }
