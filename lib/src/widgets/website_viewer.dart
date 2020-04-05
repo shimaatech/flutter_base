@@ -24,7 +24,7 @@ class _WebsiteViewerState extends State<WebsiteViewer> {
           child: InAppWebView(
             initialUrl: widget.url,
             initialOptions: InAppWebViewWidgetOptions(
-              inAppWebViewOptions: InAppWebViewOptions(debuggingEnabled: false),
+              crossPlatform: InAppWebViewOptions(debuggingEnabled: false),
             ),
             onProgressChanged: (controller, progress) => _setProgress(progress),
           ),
