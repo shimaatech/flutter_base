@@ -16,7 +16,7 @@ dependencies:
   bloc_component: ^0.1.2
   intl: ^0.16.0
   logger: ^0.8.3
-  flutter_inappbrowser: ^1.2.1
+  flutter_inappwebview: ^2.1.0+1
   built_value: ^7.0.9
   device_id: ^0.2.0
 
