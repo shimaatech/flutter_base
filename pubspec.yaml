@@ -16,9 +16,15 @@ dependencies:
   bloc_component: ^0.1.2
   intl: ^0.16.0
   logger: ^0.8.3
-  flutter_inappwebview: ^2.1.0+1
   built_value: ^7.0.9
   device_id: ^0.2.0
+
+  # There is a problem with this package
+  # https://github.com/pichillilorenzo/flutter_inappwebview/issues/220
+  flutter_inappwebview:
+    git:
+      url: https://github.com/pichillilorenzo/flutter_inappwebview.git
+      ref: master
 
 
 
