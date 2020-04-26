@@ -1,4 +1,3 @@
-import 'package:device_id/device_id.dart';
 import 'package:flutter/material.dart';
 
 class GeneralUtils {
@@ -13,8 +12,8 @@ class GeneralUtils {
     }
   }
 
-  static Future<String> getDeviceId() {
-    return DeviceId.getID;
-  }
+//  static Future<String> getDeviceId() {
+//    return DeviceId.getID;
+//  }
 
 }

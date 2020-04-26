@@ -58,7 +58,7 @@ abstract class BeanConfig<S, T extends S> {
   @protected
   void register(Locator locator);
 
-  S create(Locator locator);
+  T create(Locator locator);
 }
 
 
