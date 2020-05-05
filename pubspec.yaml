@@ -17,6 +17,7 @@ dependencies:
   intl: ^0.16.0
   logger: ^0.8.3
   built_value: ^7.0.9
+  cached_network_image: ^2.0.0
 
   # There is a problem with this package
   # https://github.com/pichillilorenzo/flutter_inappwebview/issues/220
