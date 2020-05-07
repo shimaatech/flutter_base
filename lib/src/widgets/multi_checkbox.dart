@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -27,14 +26,10 @@ class StatelessMultiCheckbox<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DraggableScrollbar.arrows(
-      controller: ScrollController(),
-      alwaysVisibleScrollThumb: true,
-      child: ListView.builder(
-        itemCount: entities.length,
-        itemBuilder: (context, index) =>
-            _buildEntityListItem(context, entities[index]),
-      ),
+    return ListView.builder(
+      itemCount: entities.length,
+      itemBuilder: (context, index) =>
+          _buildEntityListItem(context, entities[index]),
     );
   }
 
